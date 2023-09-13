@@ -59,7 +59,7 @@ export const App = () => {
             type="submit"
             className={status === "error" ? "active enabled" : ""}
           >
-            Prøv igjen
+            Noe gikk galt. Prøv igjen?
           </button>
           <button
             type="button"
