@@ -4,6 +4,18 @@ import { useState } from "preact/hooks";
 export const App = () => {
   const [status, setStatus] = useState("idle");
 
+  const handleSuccess = (res) => {
+    if (res.status < 300) {
+      setStatus("completed");
+    } else {
+      handleError(`Status: ${res.status} (${res.statusText})`);
+    }
+  };
+  const handleError = (err) => {
+    setStatus("error");
+    console.error(err);
+  };
+
   const handleSubmit = (e) => {
     setStatus("loading");
     e.preventDefault();
@@ -12,19 +24,10 @@ export const App = () => {
     const formData = new FormData(form);
 
     const formJson = Object.fromEntries(formData.entries());
-    console.log(formJson); // TODO: send
     fetch("/send", {
       method: "POST",
       body: JSON.stringify(formJson),
-    }).then(
-      () => {
-        setStatus("completed");
-      },
-      (err) => {
-        console.error(err);
-        setStatus("error");
-      }
-    );
+    }).then(handleSuccess, handleError);
   };
 
   return (
