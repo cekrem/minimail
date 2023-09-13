@@ -53,8 +53,8 @@ button.enabled {
 
 .button-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   height: 4rem;
   width: 100%;
   position: relative;
