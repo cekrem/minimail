@@ -18,13 +18,13 @@
   -webkit-text-size-adjust: 100%;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-device-width: 600px) {
   :root {
     font-size: 18px;
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-device-width: 1024px) {
   :root {
     font-size: 20px;
   }
