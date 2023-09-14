@@ -59,7 +59,8 @@ func main() {
 		m.SetHeader("From", payload.Email)
 		m.SetHeader("To", formTarget)
 		m.SetHeader("Subject", fmt.Sprintf("Melding fra %s (via blizterapi.no)", payload.Name))
-		m.SetBody("text/plain", fmt.Sprintf("Melding:\n%s\n\nAvsender: %s (%s)\n", payload.Message, payload.Name, payload.Email))
+		m.SetAddressHeader("Reply-To", payload.Email, payload.Name)
+		m.SetBody("text/plain", fmt.Sprintf("%s\n\nAvsender: %s (%s)\n", payload.Message, payload.Name, payload.Email))
 
 		// Settings for SMTP server
 		d := gomail.NewDialer("smtp.gmail.com", 587, "vev.kontaktskjema@gmail.com", appPass)
