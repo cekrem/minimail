@@ -35,6 +35,7 @@ button {
   justify-content: center;
   align-items: center;
   height: 56px;
+  min-width: 242px;
   padding: 0 3rem;
   border: thin solid black;
   transition: opacity 0.2s ease;
