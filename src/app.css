@@ -29,6 +29,7 @@ label {
 button {
   all: unset;
   box-sizing: border-box;
+  font-family: "Albert Sans", sans-serif;
   position: absolute;
   display: flex;
   justify-content: center;
